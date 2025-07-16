@@ -21,6 +21,8 @@ export const POST = async (request: NextRequest) => {
   });
 
   const data = await response.json();
+  console.log('OpenAI API response:', JSON.stringify(data, null, 2));
 
-  return NextResponse.json({ answer: data.choices?.[0]?.message?.content });
+  const answer = data.choices?.[0]?.message?.content?.trim();
+  return NextResponse.json({ answer: answer || "Omar’s Cousins are speechless right now!" });
 }
