@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [messages, setMessages] = useState([
-    { role: 'system', content: "Ask Omar's cousins anything." },
+    { role: 'system', content: "Ask Omar&apos;s cousins anything." },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ export default function Home() {
             {msg.content}
           </div>
         ))}
-        {loading && <div className="p-3">Omar's cousins are thinking...</div>}
+        {loading && <div className="p-3">Omar&apos;s cousins are thinking...</div>}
       </div>
 
       <form onSubmit={handleSubmit} className="flex p-4 border-t bg-white">
