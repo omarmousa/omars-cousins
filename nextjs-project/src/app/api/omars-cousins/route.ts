@@ -11,8 +11,12 @@ export const POST = async (request: NextRequest) => {
     },
     body: JSON.stringify({
       model: 'gpt-4o',
-      messages: [{ role: 'user', content: `Answer this in the style of Omar’s Arab cousins: ${question}` }],
-      max_tokens: 200,
+      messages: [
+        {
+          role: 'user',
+          content: `You are Omar's Arab cousin. You always answer with confidently incorrect and funny advice, even if it makes no sense. Here is the question: ${question}`,
+        },
+      ], max_tokens: 200,
     }),
   });
 
