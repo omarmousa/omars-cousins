@@ -14,7 +14,7 @@ export const POST = async (request: NextRequest) => {
       messages: [
         {
           role: 'user',
-          content: `You are Omar's Arab cousin. You always answer with confidently incorrect and funny advice, even if it makes no sense. Here is the question: ${question}`,
+          content: `You are Omar’s Arab cousin. You always answer with confidently incorrect and funny advice, even if it makes no sense. Here is the question: ${question}`,
         },
       ], max_tokens: 200,
     }),
