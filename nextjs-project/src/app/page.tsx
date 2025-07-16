@@ -26,13 +26,16 @@ function loadSessions(): Session[] {
   const raw = localStorage.getItem(SESSIONS_KEY);
   if (!raw) return [];
   try {
-    const parsed = JSON.parse(raw);
+    const parsed = JSON.parse(raw) as Session[];
     // Ensure all messages have correct role types
-    return parsed.map((session: any) => ({
+    return parsed.map((session: Session) => ({
       ...session,
-      messages: session.messages.map((msg: any) => ({
+      messages: session.messages.map((msg: Message) => ({
         ...msg,
-        role: msg.role === 'system' || msg.role === 'user' || msg.role === 'assistant' ? msg.role : 'system',
+        role:
+          msg.role === 'system' || msg.role === 'user' || msg.role === 'assistant'
+            ? msg.role
+            : 'system',
       })),
     }));
   } catch {
